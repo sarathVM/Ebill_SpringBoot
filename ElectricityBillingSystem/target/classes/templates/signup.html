@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+			<div class="my-card mt">
+				<div th:if="${session.message}" th:classappend="${session.message.type}"  class="alert" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
+
+				</div>
+			
+					<h1 class="text-center">Add New Admin</h1>
+					<form th:action="@{/do_Register}" method="post" th:object=${admin}>
+					<div class="form-group">
+    				
+    				<label for="name">Admin Name</label>
+   				 	<input type="text"
+   				 	 name="aName"
+   				 	 th:value="${admin.aName}"
+   				 	 class="form-control" id="name" aria-describedby="emailHelp" 
+   				 	 placeholder="Enter admin name"
+   				 	 required>
+  					
+  					</div>
+  					<div class="form-group">
+    				
+    				<label for="email">Email address</label>
+   				 	<input type="email"
+   				 	name="aEmail"
+   				 	th:value="${admin.aEmail}"
+   				 	 class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+   				 	 required
+   				 	 >
+  					
+  					</div>
+  					<div class="form-group">
+    				
+    				<label for="pass">Password</label>
+   				 	<input type="password"
+   				 	name="aPass"
+   				 
+   				 	 class="form-control" id="pass" aria-describedby="emailHelp" placeholder="Enter admin password"
+   				 	 required
+   				 	 >
+  					</div>
+					<div class="form-group">
+    				
+    				<label for="state">State</label>
+   				 	<input type="text"
+   				 	name="state"
+   				 	th:value="${admin.state}"
+   				 	 class="form-control" id="state" aria-describedby="emailHelp" placeholder="Enter State"
+   				 	 required
+   				 	 >
+  					
+  					</div>
+  					
+  					<div class="form-group">
+    				
+    				<label for="unit">Cost of 1 unit</label>
+   				 	<input type="number"
+   				 	name="unitcost"
+   				 	th:value="${admin.unitcost}"
+   				 	 class="form-control" id="state" aria-describedby="emailHelp" placeholder="Enter Price of Electricity per unit "
+   				 	 required
+   				 	 >
+  					
+  					</div>
+  					
+  					<div class="form-group form-check">
+  						<input type="checkbox"
+  						name="agreement"
+  						class="form-check-input"
+  						id="agreement"
+  						
+  						/>
+  						<label for="agreement">Accept terms and conditions</label>
+  						  					
+  					
+  					</div>
+  					
+  					<div class="container">
+  					
+  					<button type="submit"  class="btn bg-secondary">
+  					
+  					Submit
+  					
+  					</button>
+  					<button type="reset"  class="btn btn-warning">
+  					
+  					Reset
+  					
+  					</button>
+  					
+  					
+  					</div>
+					
+					</form>
+					
+			
+			</div>
+				
+			
+			
+			
+			
+			
+			</div>
+		
+		
+		
+		
+		</div>
+	
+	</div>
+</section>
+</body>
+</html> 

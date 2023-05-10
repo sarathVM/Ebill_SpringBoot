@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<h1><a href="" th:href="@{/logout}"></a></h1>
+<div class="card mr-3 ml-3">
+<div class="card-body">
+
+<h1 style="color:black;" class="text-center">Your Customers</h1>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Meter reading</th>
+      <th scope="col">State</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr th:each="c:${customers}">
+      <th scope="row"th:text="'CUSTOMER'+${c.cId}">1</th>
+      <td th:text="${c.cName}">Mark</td>
+      <td th:text="${c.cPhoneNo}">Otto</td>
+      <td th:text="${c.DOB}">@mdo</td>
+      <td th:text="${c.cUnits}">Mark</td>
+      <td th:text="${admin.getState()}">Otto</td>
+      <td>
+      <a href="#" th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger btn-sm">Delete</a>
+      <form method="post" th:action="@{'/admin/update/'+${c.cId}}" class="mt-2">
+      <button type="submit" class="btn btn-primary btn-sm">Update</button>
+      </form>
+      
+      
+      
+      </td>
+      
+    </tr>
+     </tbody>
+</table>
+<!-- Pagination part -->
+<nav id="page" aria-label="Page navigation example">
+  <ul class="pagination justify-content-end ">
+    <li class="page-item"><a  class="page-link" href="#">Previous</a></li>
+   
+    <li th:classappend="${currentPage==i-1?'active':''}" th:each="i:${#numbers.sequence(1,totalPages)}" class="page-item"><a th:href="@{'/admin/view/'+${i-1}}" class="page-link" href="#"><span th:text="${i}"></span></a></li>
+   
+    <li class="page-item"><a  class="page-link" href="#">Next</a></li>
+  </ul>
+</nav></div>
+
+</div>
+
+</section>
+
+</body>
+</html>

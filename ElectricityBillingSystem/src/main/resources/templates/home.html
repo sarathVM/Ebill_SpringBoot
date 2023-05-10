@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<section class="banner d-flex justify-content-center align-items-center ">
+<div class="my-card mt">
+				<div 
+					th:if="${session.message}" 
+					th:classappend="${session.message.type}"  class="alert" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
+
+				</div>
+				</div>				
+
+<div class="text-center">
+<h1 class="font-weight-bold">Electrcity Billing System</h1>
+<div class="container text-center">
+<form class="form-inline" 
+		th:action="@{/searchID}">
+    <input name="search" id="search" class="form-control mr-sm-2" type="text" style="width: 360px" placeholder="Enter Customer ID" aria-label="Search">
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+</form>
+</div>
+</div>
+</section>
+</body>
+</html> 

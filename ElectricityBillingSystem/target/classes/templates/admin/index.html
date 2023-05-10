@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<h1>this is index page of <span th:text="${admin.aName}"></span></h1>
+<h1><a href="" th:href="@{/logout}"></a></h1>
+<h1>hello index page</h1>
+</section>
+
+</body>
+</html>

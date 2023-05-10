@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class= "container mt-3">
+     <div class= "row">
+         <div class= "col-md-6 offset-md-3">
+             <h1 class= "text-center mb-3">Fill Customer details</h1>
+             <form 
+             action= "#" 
+             th:object="${customer}"
+             method="POST"
+             th:action="@{/admin/process}"
+             >
+             
+                 <div class= "form-group">
+                     <label for= "name ">Customer Name</label> 
+                     <input type= "text"
+                         class= "form-control"
+                          id= "name"
+                          aria-describedby= "emailHelp"
+                         name= "cName"
+                         placeholder= "Enter the Customer name here">
+                 </div>
+                 <!-- <div class= "form-group">
+                     <label for= "age ">Customer Age</label> 
+                     <input type= "text"
+                         class= "form-control"
+                          id= "age"
+                          aria-describedby= "emailHelp"
+                         name= "cAge"
+                         placeholder= "Enter the Customer age here">
+                 </div> -->
+                 <div class= "form-group">
+                     <label for="dob" >Date of Birth</label> 
+                     <input type= "date"
+                         class= "form-control"
+                          id= "dob"
+                          aria-describedby= "emailHelp"
+                         name= "DOB"
+                         placeholder= "Enter the Customer DOB here">
+                 </div>
+                 <div class="form-group mt-3">
+                 <textarea name="cAddress" id="adress" rows="5" class="form-control" cols="30" placeholder="Enter Customer Address" ></textarea>
+                 
+                 </div>
+                 
+                      
+<div class= "form-group">
+     <label for= "price ">Total Units</label>
+      <input type= "text"
+         placeholder= "Enter Total Units"
+         name= "cUnits"
+         class= "form-control" id= "price">
+</div>
+<div class= "form-group">
+                     <label for= "phoneNumber">Customer Phone Number</label> 
+                     <input type= "text"
+                         class= "form-control"
+                          id= "phoneNumber"
+                          aria-describedby= "emailHelp"
+                         name= "cPhoneNo"
+                         placeholder= "Enter the Customer contact number here">
+                 </div>
+                 
+                       
+<div class= "container text-center">
+<a th:href="@{/admin/index }"
+     class= "btn btn-outline-danger">Back</a>
+<button type= "submit" class= "btn btn-primary">Add</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+</body>
+</html>

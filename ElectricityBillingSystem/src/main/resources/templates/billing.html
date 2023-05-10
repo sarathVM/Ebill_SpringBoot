@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+
+<div class="container">
+
+<table class="table">
+
+<thead>
+<tr>
+<th scope="col">#ID</th>
+<th scope="col">$CUSTOMER<span th:text="${customer.cId}"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Name</th>
+<td><span th:text="${customer.cName}"></span></td>
+</tr>
+<tr>
+<th scope="row">Phone Number</th>
+<td><span th:text="${customer.cPhoneNo}"></span></td>
+</tr>
+<tr>
+<th scope="row">Address</th>
+<td><span th:text="${customer.cAddress}"></span></td>
+</tr>
+<tr>
+<th scope="row">Total Bill</th>
+<td><span th:text="'INR '+${(admin.unitcost)*customer.cUnits}"></span></td>
+</tr>
+<tr>
+<th scope="row">State</th>
+<td><span th:text="${admin.State}"></span></td>
+</tr>
+<tr>
+<th scope="row">Admin Name</th>
+<td><span th:text="${admin.aName}"></span></td>
+</tr>
+<tr>
+<th scope="row">Admin email</th>
+<td><span th:text="${admin.aEmail}"></span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+
+</div>
+<div class= "container text-center">
+<a th:href="@{/}"
+     class= "btn btn-outline-danger">Back</a>
+
+</div>
+
+
+</section>
+
+</body>
+</html> 
